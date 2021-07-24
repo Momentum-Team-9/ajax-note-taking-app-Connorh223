@@ -1,7 +1,7 @@
 /* globals fetch, moment */
 
 const url = 'http://localhost:3000/notes/'
-const form = document.querySelector('#notes-list')
+const form = document.querySelector('#notes-form')
 const notesList = document.querySelector('#notes-list')
 
 
@@ -10,17 +10,29 @@ const notesList = document.querySelector('#notes-list')
 // note item on the DOM
 form.addEventListener('submit', function (e) {
  e.preventDefault()
- const notesText = document.getElementById('notes-text').value
- console.log(notesText)
- createNote(notesText)
+ let notesText = document.getElementById('notes-text').value
+ let notesTitle = document.getElementById('notes-title').value
+ let notesInfo = {
+     body: notesText,
+     title: notesTitle,
+ }
+ console.log(notesInfo)
+ createNote(notesInfo)
   // this will clear my input after submitting a note
 form.reset()
 })
+
+
 
 // Here I am removing a note item from the DOM
 notesList.addEventListener('click', function (e) {
     if (e.target.classList.contains('delete')) {
     deleteNote(e.target)
+}
+
+if (e.target.classList.contains('edit')) {
+    console.log(event)
+    updateNote(e.target)
 }
 
 // notesList.addEventListener('click', function (e){
@@ -89,7 +101,7 @@ fetch('http://localhost:3000/notes/')
 }
 
 // POST request
-function createNote (notesText) {
+function createNote (notesInfo) {
   // I am making a POST request so that I can add
   // a new note to my database.
     fetch(url, {
@@ -98,15 +110,15 @@ function createNote (notesText) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            title: notesText,
-            body: notesText,
+            title: notesInfo.title,
+            body: notesInfo.body,
       // here I am creating a new key and using moment().format()
       // to create a time string that captures when the new note was created
             created_at: moment().format()
     })
 })
     .then(response => response.json())
-    .then(data => renderNotesItem(data))
+    renderNotesItem(notesInfo)
 }
 
 // DELETE request
