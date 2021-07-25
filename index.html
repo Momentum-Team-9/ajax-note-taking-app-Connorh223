@@ -11,51 +11,36 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
   <script src="script.js" defer></script>
-  <title>Notes</title>
 </head>
 
 <body class="avenir pa4">
 
   <!-- W3 Schools Template Start -->
-  <!-- Header -->
   <header class="w3-display-container w3-content w3-center" style="max-width:1500px">
-    <img class="w3-image" src="https://www.w3schools.com/w3images/photographer.jpg" alt="Me" width="1500" height="600">
-    <!-- Text Box -->
+    <img class="w3-image" src="https://media.istockphoto.com/photos/young-women-with-shopping-bags-standing-on-the-street-picture-id1148923865?k=6&m=1148923865&s=612x612&w=0&h=267PQmP_uqcDxKuQ4R211lj8DrYnFp374buf_qnZLeg=" alt="Me" width="1500" height="600">
+    <!-- //Text box -->
     <div class="w3-display-middle w3-padding-large w3-border w3-wide w3-text-light-grey w3-center">
-      <h1 class="f3 f2-m f1-l fw2 black-90 mv3">Notes!</h1>
-      <form id="notes-form" class="pv4">
-        <div class="form-field">
-          <input id="notes-text" class="pa3 w-100 measure" type="text" placeholder="Enter your note item here" required>
-          <input id="notes-title" class="pa3 w-100 measure" type="text" placeholder="Enter your note title here" required>
+      <div class="title-box">
+          <h1 class="f3 f2-m f1-l fw2 white-140 mv3">Notes!</h1>
+      </div>
+          <form id="notes-form" class="pv4">
+            <div class="form-field">
+              <input id="notes-text" class="pa3 w-100 measure" type="text" placeholder="Enter your note item here" required>
+              <input id="notes-title" class="pa3 w-100 measure" type="text" placeholder="Enter your note title here" required>
+            </div>
+            <div class="form-field">
+              <!-- //submit button -->
+              <button id="save-note" type="submit" class="mt3 f6 ph3 pv2 mb2 dib white bg-dark-blue">Save Note</button>
+            </div>
+          </form>
+          <!-- //outputted notes -->
+          <section id="notes" class="pa3">
+            <ul id="notes-list" class="list pl0 measure"></ul>
+          </section>
         </div>
-        <div class="form-field">
-          <button id="save-note" type="submit" class="mt3 f6 ph3 pv2 mb2 dib white bg-dark-blue">Save Note</button>
-        </div>
-      </form>
-      <section id="notes" class="pa3">
-        <ul id="notes-list" class="list pl0 measure"></ul>
-      </section>
-    </div>
-    
-    <!-- Navbar (placed at the bottom of the header image) -->
-    <div class="w3-bar w3-light-grey w3-round w3-display-bottommiddle w3-hide-small" style="bottom:-16px">
-      <a href="#" class="w3-bar-item w3-button">Home</a>
-      <a href="#portfolio" class="w3-bar-item w3-button">Portfolio</a>
-      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-    </div>
-  </header>
+        
+  
 
-  <!-- Navbar on small screens -->
-  <div class="w3-center w3-light-grey w3-padding-16 w3-hide-large w3-hide-medium">
-  <div class="w3-bar w3-light-grey">
-    <a href="#" class="w3-bar-item w3-button">Home</a>
-    <a href="#portfolio" class="w3-bar-item w3-button">Portfolio</a>
-    <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-  </div>
-  </div>
-  <!-- Page content -->
-
-  <!-- End page content -->
   </div>
   <!-- W3 Schools Template End -->
 

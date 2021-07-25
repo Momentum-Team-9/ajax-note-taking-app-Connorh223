@@ -6,15 +6,15 @@ const notesList = document.querySelector('#notes-list')
 
 
 form.addEventListener('submit', function (e) {
- e.preventDefault()
- let notesText = document.getElementById('notes-text').value
- let notesTitle = document.getElementById('notes-title').value
- let notesInfo = {
-     body: notesText,
-     title: notesTitle,
- }
- console.log(notesInfo)
- createNote(notesInfo)
+    e.preventDefault()
+    let notesText = document.getElementById('notes-text').value
+    let notesTitle = document.getElementById('notes-title').value
+    let notesInfo = {
+        body: notesText,
+        title: notesTitle,
+    }
+    console.log(notesInfo)
+    createNote(notesInfo)
 
 form.reset()
 })
