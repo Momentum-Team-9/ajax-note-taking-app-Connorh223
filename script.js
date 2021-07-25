@@ -31,7 +31,6 @@ notesList.addEventListener('click', function (e) {
 }
 
 if (e.target.classList.contains('edit')) {
-    console.log(event)
     updateNote(e.target)
 }
 
@@ -118,7 +117,7 @@ function createNote (notesInfo) {
     })
 })
     .then(response => response.json())
-    renderNotesItem(notesInfo)
+    .then(() => renderNotesItem(notesInfo))
 }
 
 // DELETE request
