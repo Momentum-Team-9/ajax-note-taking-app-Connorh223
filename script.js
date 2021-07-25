@@ -70,19 +70,27 @@ function renderNotesText (notesListItem, notesObj) {
 notesListItem.innerHTML = `<span class="dib w-60">${notesObj.body}</span><i class="ml2 dark-red fas fa-times delete"></i><i class="ml3 fas fa-edit edit"></i>`
 }
 
+// Helper function to delete content of list
+function clearList() {
+    notesList.innerHTML = '';    
+}
 
 // CRUD Functions 
 
 // GET request
 function listNotes () {
-fetch('http://localhost:3000/notes')
-    .then((response) => response.json())
-    .then((data) => {
-    for (const note of data) {
-        console.log(note)
-        renderNotesItem(note)
-        }
-    })
+    // Delete current list
+    clearList();
+    // TODO remove later
+    console.log(`Cleared list...`);
+    fetch('http://localhost:3000/notes')
+        .then((response) => response.json())
+        .then((data) => {
+        for (const note of data) {
+            console.log(note)
+            renderNotesItem(note)
+            }
+        })
 }
 
 // POST request
@@ -111,7 +119,10 @@ function deleteNote (element) {
 // UPDATE note
 function updateNote (element) {
     const noteId = element.parentElement.id
-    const notesText = document.querySelector('#notes-text')
+    const notesText = document.querySelector('#notes-text').value
+    // TODO Remove later
+    console.log(`noteId ${noteId}`);
+    console.log(`notesText ${notesText}`);
     fetch(url + '/' + `${noteId}`, {
         method: 'PUT', 
         headers: { 'Content-Type': 'application/json' }, 
@@ -120,15 +131,19 @@ function updateNote (element) {
             body: notesText ,
             updated_at: moment().format()
         })
+        })
         .then((response) => {
-        return response.json()
+            return response.json()
         })
         .then(data => {
-            renderNotesItem(element.parentElement, data)
-        })
+            // TODO Remove later
+            console.log(`data ${data}`);
+            listNotes();
+            form.reset();
+        }).catch((error) => {
+            console.log(`==> error: ${error}`);
+          })
         
     }
-
-    )}
 
 listNotes()
